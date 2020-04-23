@@ -1,0 +1,58 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="form">
+                <h3>Professores(as)</h3>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-8">
+            <table class="table table-striped table-bordered">
+                <thead>
+                <tr>
+                    <th scope="col">Professor(a)</th>
+                    <th scope="col">Qtd. Matérias</th>
+                    <th scope="col"></th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr *ngFor="let prof of professores">
+                    <td>{{prof.nome}}</td>
+                    <td>{{prof.qtdMaterias}}</td>
+                    <td><button type="button" class="btn btn-primary">Detalhes</button></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <hr />
+    
+    <div class="row">
+        <div class="col-md-12">
+            <div class="form">
+                <h3>Matérias</h3>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-8">
+            <table class="table table-striped table-bordered">
+                <thead>
+                <tr>
+                    <th scope="col">Matéria</th>
+                    <th scope="col">Qtd. Professores(as)</th>
+                    <th scope="col"></th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr *ngFor="let mat of materias">
+                    <td>{{mat.nome}}</td>
+                    <td>{{mat.qtdProfessores}}</td>
+                    <td><button type="button" class="btn btn-primary">Detalhes</button></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
