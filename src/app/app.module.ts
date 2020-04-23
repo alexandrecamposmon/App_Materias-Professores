@@ -9,6 +9,8 @@ import { FooterComponent } from './navegacao/footer/footer.component';
 import { ListagemComponent } from './paginas/listagem/listagem.component';
 import { DashboardComponent } from './paginas/dashboard/dashboard.component';
 import { AvisosComponent } from './paginas/avisos/avisos.component';
+import { ChartsModule } from 'ng2-charts';
+
 
 @NgModule({
   declarations: [
@@ -22,7 +24,8 @@ import { AvisosComponent } from './paginas/avisos/avisos.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ChartsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
