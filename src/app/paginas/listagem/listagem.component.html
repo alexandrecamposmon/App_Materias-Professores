@@ -70,5 +70,21 @@
                 </tbody>
             </table>
         </div>
+        <div *ngIf="idMateria > 0" class="col-md-4">
+            <button class="btn btn-danger" (click)="getMateria(0)">X</button><br />
+            <span>Professores(as) aptos(as) para <b>{{Materia}}</b></span>
+            <table class="table table-striped table-bordered">
+                <thead>
+                <tr>
+                    <th scope="col">Nome</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr *ngFor="let prof of matProfessores">
+                    <td>{{prof.nomeProfessor}}</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
     </div>
 </div>

@@ -3,6 +3,9 @@ import {Professor} from '../../model/professor';
 import {Materia} from '../../model/materia';
 import {ProfessorPorMateria} from '../../model/professorPorMateria';
 import {profMaterias} from '../../model/profMaterias';
+import {materiaPorProfessor} from '../../model/materiaPorProfessor';
+import {matProfessores} from '../../model/matProfessores';
+
 
 @Component({
   selector: 'app-listagem',
@@ -31,7 +34,24 @@ export class ListagemComponent implements OnInit {
     new ProfessorPorMateria(5, 'Física'),
     new ProfessorPorMateria(5, 'Educação Física')
   ];
+
+
+  public matPorProfessores = [
+    new materiaPorProfessor(1, 'Ronaldo Fenômeno'),
+    new materiaPorProfessor(2, 'Ronaldo Fenômeno'),
+    new materiaPorProfessor(3, 'Ronaldo Fenômeno'),
+    new materiaPorProfessor(3, 'Rivaldo'),
+    new materiaPorProfessor(4, 'Ronaldo Fenômeno'),
+    new materiaPorProfessor(5, 'Denilson Show'),
+    new materiaPorProfessor(6, 'Rivaldo'),
+    new materiaPorProfessor(7, 'Roberto Carlos'),
+    new materiaPorProfessor(8, 'Roberto Carlos'),
+    new materiaPorProfessor(9, 'Ronaldinho Gaucho'),
+    new materiaPorProfessor(10, 'Rivaldo'),
+    new materiaPorProfessor(10, 'Denilson Show'),
+  ];
   public profMaterias : profMaterias[];
+  public matProfessores : matProfessores[];
   public professores = [
     new Professor(1, 'Ronaldo Fenômeno', "4"),
     new Professor(2, 'Rivaldo', "3"),
@@ -64,6 +84,7 @@ export class ListagemComponent implements OnInit {
     this.profMaterias = [];
     if (idProf > 0){
       this.Professor = this.professores.find(e => e.id == idProf).nome;
+
       this.profPorMateria.forEach(element => {
         if (element.idProfessor == idProf){
           this.profMaterias.push(new profMaterias(element.nomeMateria));
@@ -74,11 +95,16 @@ export class ListagemComponent implements OnInit {
   }
   getMateria(idMateria: number){
     this.idMateria = idMateria;
-    if (idMateria == 0){
-      this.Materia = ""
-    }
-    else{
+    this.Materia = ""
+    this.matProfessores = [];
+    if (idMateria > 0){
       this.Materia = this.materias.find(e => e.id == idMateria).nome;
+      
+      this.matPorProfessores.forEach(element => {
+        if (element.idMateria == idMateria){
+          this.matProfessores.push(new matProfessores(element.nomeProfessor));
+        }
+      });
     }
   }
 }
