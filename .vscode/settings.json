@@ -1,0 +1,8 @@
+{
+    "appService.defaultWebAppToDeploy": "/subscriptions/9be864d2-1143-4976-aaf1-6fc00c775ed2/resourceGroups/TesteItau/providers/Microsoft.Web/sites/AppItau",
+    "appService.deploySubpath": "",
+    "appService.zipIgnorePattern": [
+        "node_modules{,/**}",
+        ".vscode{,/**}"
+    ]
+}
