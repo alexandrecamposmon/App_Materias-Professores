@@ -19,7 +19,7 @@ export class DashboardComponent implements OnInit {
   public barChartLegend = true;
 
   public barChartData: ChartDataSets[] = [
-    { data: [4, 3, 2, 1, 2,0], label: 'Professores' }
+    { data: [4, 3, 2, 1, 2,0], label: 'Matérias' }
   ];
 
   
@@ -33,7 +33,7 @@ export class DashboardComponent implements OnInit {
   public barChartLegendM = true;
 
   public barChartDataM: ChartDataSets[] = [
-    { data: [4,1,2,1,1,1,1,1,1,2,0], label: 'Matérias' }
+    { data: [4,1,2,1,1,1,1,1,1,2,0], label: 'Professores' }
   ];
 
   constructor() { }
