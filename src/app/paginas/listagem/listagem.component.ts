@@ -78,8 +78,8 @@ export class ListagemComponent implements OnInit {
   public Materia = "";
   ngOnInit(): void {
   }
-  getProfessor(idProf: number){
-    this.idProfessor = idProf;
+  getProfessor(idProf: number){ 
+    this.idProfessor = idProf; 
     this.Professor = ""
     this.profMaterias = [];
     if (idProf > 0){
