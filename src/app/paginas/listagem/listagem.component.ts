@@ -16,6 +16,7 @@ import {matProfessores} from '../../model/matProfessores';
 export class ListagemComponent implements OnInit {
 
   constructor() { }
+  public possuiMateriaSemProfessor = false;
   public profPorMateria = [
     new ProfessorPorMateria(1, 'Matemática'),
     new ProfessorPorMateria(1, 'História'),
@@ -77,6 +78,7 @@ export class ListagemComponent implements OnInit {
   public Professor = "";
   public Materia = "";
   ngOnInit(): void {
+    this.possuiMateriaSemProfessor = true;
   }
   getProfessor(idProf: number){ 
     this.idProfessor = idProf; 
@@ -106,5 +108,8 @@ export class ListagemComponent implements OnInit {
         }
       });
     }
+  }
+  fecharAviso(){
+    this.possuiMateriaSemProfessor = false;
   }
 }

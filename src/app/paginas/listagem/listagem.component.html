@@ -2,7 +2,26 @@
     <div class="row">
         <div class="col-md-12">
             <div class="form">
-                <h3>Professores(as)</h3>
+                <h1>LISTAGEM DE PROFESSORES E MATÉRIAS</h1>
+                <hr />
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="form">
+                <div *ngIf="possuiMateriaSemProfessor" class="alert alert-danger">
+                    <span>ATENÇÃO: Existem uma ou mais matérias sem professor(a) 
+                        <input type="button" class="btn btn-danger" style="float: right; margin-top: -7px;" value="X" (click)="fecharAviso()" /> 
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="form">
+                <h3><i class="fa fa-user fa-lg"></i> Professores(as)</h3>
             </div>
         </div>
     </div>
@@ -26,7 +45,7 @@
             </table>
         </div>
         <div *ngIf="idProfessor > 0" class="col-md-4">
-            <button class="btn btn-danger" (click)="getProfessor(0)">X</button><br />
+            <button class="btn btn-danger" style="float:right;" (click)="getProfessor(0)">X</button><br />
             <span>Matérias do(a) professor(a) <b>{{Professor}}</b></span>
             <table class="table table-striped table-bordered">
                 <thead>
@@ -47,7 +66,7 @@
     <div class="row">
         <div class="col-md-12">
             <div class="form">
-                <h3>Matérias</h3>
+                <h3><i class="fa fa-inbox fa-lg"></i> Matérias</h3>
             </div>
         </div>
     </div>
@@ -71,20 +90,25 @@
             </table>
         </div>
         <div *ngIf="idMateria > 0" class="col-md-4">
-            <button class="btn btn-danger" (click)="getMateria(0)">X</button><br />
-            <span>Professores(as) aptos(as) para <b>{{Materia}}</b></span>
-            <table class="table table-striped table-bordered">
-                <thead>
-                <tr>
-                    <th scope="col">Nome</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr *ngFor="let prof of matProfessores">
-                    <td>{{prof.nomeProfessor}}</td>
-                </tr>
-                </tbody>
-            </table>
+            <button class="btn btn-danger" style="float:right;" (click)="getMateria(0)">X</button><br />
+            <div *ngIf="matProfessores.length > 0">
+                <span>Professores(as) aptos(as) para <b>{{Materia}}</b></span>
+                <table class="table table-striped table-bordered">
+                    <thead>
+                    <tr>
+                        <th scope="col">Nome</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr *ngFor="let prof of matProfessores">
+                        <td>{{prof.nomeProfessor}}</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div *ngIf="matProfessores.length == 0" class="alert alert-danger">
+                <span>ATENÇÃO: A matéria {{Materia}} <b>NÃO</b> tem professores(as) aptos(as)</span>
+            </div>
         </div>
     </div>
 </div>
